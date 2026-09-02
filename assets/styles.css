@@ -94,3 +94,8 @@
     margin:26px auto 0 !important;
   }
 }
+
+/* Blog administrado con Pages CMS */
+.article-cover{width:100%;max-height:520px;object-fit:cover;margin:0 0 34px;border-radius:3px}
+.blog-card-image{width:100%;aspect-ratio:16/9;object-fit:cover;margin-bottom:18px;border-radius:2px}
+.legal-note{font-size:.86rem;opacity:.72;border-left:2px solid var(--wine,#681517);padding-left:14px;margin-bottom:30px}
