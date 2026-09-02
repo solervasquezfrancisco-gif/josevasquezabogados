@@ -1,0 +1,80 @@
+media:
+  input: assets/blog
+  output: /assets/blog
+
+content:
+  - name: blog
+    label: Blog
+    type: collection
+    path: content/blog
+    view:
+      fields: [title, date, category, author, published]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Título
+        type: string
+        required: true
+
+      - name: date
+        label: Fecha
+        type: date
+        required: true
+
+      - name: author
+        label: Autor
+        type: select
+        options:
+          values:
+            - Francisco Vásquez
+            - Martina José
+        required: true
+
+      - name: category
+        label: Área
+        type: select
+        options:
+          values:
+            - Civil
+            - Laboral
+            - Empresarial
+            - Previsional
+            - Amparos
+            - Familia y Sucesiones
+            - Consumidores y Seguros
+            - Contratos y Cobranzas
+        required: true
+
+      - name: excerpt
+        label: Resumen
+        type: text
+        required: true
+
+      - name: image
+        label: Imagen de portada
+        type: image
+        required: false
+
+      - name: seo_title
+        label: Título SEO
+        type: string
+        required: false
+
+      - name: seo_description
+        label: Descripción SEO
+        type: text
+        required: false
+
+      - name: published
+        label: Publicado
+        type: boolean
+        default: true
+
+      - name: body
+        label: Contenido
+        type: rich-text
+        required: true
