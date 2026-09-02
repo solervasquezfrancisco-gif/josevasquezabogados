@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Calculadora de Indemnización por Despido | José & Vásquez Abogados</title>
+
+  <meta name="description" content="Calculá una estimación de tu indemnización por despido en Argentina. Herramienta gratuita de José & Vásquez Abogados, Mendoza.">
+
+  <style>
+    :root {
+      --green: #173b36;
+      --green-dark: #102c29;
+      --cream: #f5f1e8;
+      --paper: #fbfaf6;
+      --gold: #aa8b59;
+      --wine: #75464c;
+      --text: #25312f;
+      --muted: #68726f;
+      --border: #ddd7ca;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    header {
+      background: var(--green-dark);
+      color: white;
+      padding: 22px 24px;
+    }
+
+    .header-inner {
+      width: min(1120px, 92%);
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      text-decoration: none;
+      color: white;
+    }
+
+    .brand strong {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 21px;
+      letter-spacing: .04em;
+    }
+
+    .brand span {
+      display: block;
+      color: #d7c6a7;
+      font-size: 11px;
+      letter-spacing: .18em;
+      margin-top: 2px;
+    }
+
+    nav a {
+      color: #eee9df;
+      text-decoration: none;
+      font-size: 14px;
+      margin-left: 24px;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .hero {
+      background: var(--green);
+      color: white;
+      padding: 65px 24px 75px;
+    }
+
+    .hero-inner {
+      width: min(900px, 92%);
+      margin: auto;
+    }
+
+    .eyebrow {
+      color: #d6c39e;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(36px, 6vw, 58px);
+      line-height: 1.06;
+      font-weight: normal;
+      margin: 14px 0 18px;
+      max-width: 850px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      color: #e7e4dc;
+      font-size: 18px;
+      margin: 0;
+    }
+
+    main {
+      width: min(900px, 92%);
+      margin: -35px auto 70px;
+      position: relative;
+    }
+
+    .calculator {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 38px;
+      box-shadow: 0 14px 45px rgba(20, 42, 38, .09);
+    }
+
+    .section-title {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--green-dark);
+      font-size: 28px;
+      margin: 0 0 8px;
+    }
+
+    .intro {
+      color: var(--muted);
+      margin: 0 0 30px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    label,
+    legend {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--green-dark);
+    }
+
+    input[type="date"],
+    input[type="number"] {
+      display: block;
+      width: 100%;
+      margin-top: 8px;
+      padding: 14px 15px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: white;
+      color: var(--text);
+      font-size: 16px;
+    }
+
+    input:focus {
+      outline: 2px solid rgba(170, 139, 89, .22);
+      border-color: var(--gold);
+    }
+
+    .check {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 22px 0;
+      cursor: pointer;
+    }
+
+    .check input {
+      margin-top: 4px;
+    }
+
+    .check small {
+      display: block;
+      color: var(--muted);
+      font-weight: normal;
+      margin-top: 3px;
+    }
+
+    fieldset {
+      border: 0;
+      padding: 0;
+      margin: 25px 0 0;
+    }
+
+    .radios {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .radios label {
+      font-weight: normal;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .actions {
+      margin-top: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 8px;
+      padding: 14px 22px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .calculate {
+      background: var(--green);
+      color: white;
+    }
+
+    .calculate:hover {
+      background: var(--green-dark);
+    }
+
+    .clear {
+      background: transparent;
+      color: var(--green);
+      border: 1px solid var(--border);
+    }
+
+    #error {
+      background: #f7ecec;
+      border: 1px solid #ddc3c3;
+      color: #773b3b;
+      padding: 13px 15px;
+      border-radius: 8px;
+      margin-top: 22px;
+    }
+
+    #results {
+      margin-top: 34px;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .summary-box {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      padding: 18px;
+    }
+
+    .summary-box small {
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .summary-box strong {
+      display: block;
+      margin-top: 6px;
+      color: var(--green-dark);
+      font-size: 18px;
+    }
+
+    .notice {
+      padding: 17px 18px;
+      margin-bottom: 16px;
+      background: #f1ede4;
+      border-left: 4px solid var(--gold);
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .result-table {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .result-heading {
+      padding: 20px;
+      background: #f3efe6;
+    }
+
+    .result-heading h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--green-dark);
+      font-size: 24px;
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 15px 20px;
+      border-top: 1px solid #ece8df;
+    }
+
+    .result-row span:last-child {
+      white-space: nowrap;
+      font-weight: 700;
+    }
+
+    .total {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 20px;
+      border-top: 2px solid var(--green);
+      color: var(--green-dark);
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .disclaimer {
+      margin-top: 22px;
+      background: #eee9de;
+      border-radius: 10px;
+      padding: 18px;
+      color: #59625f;
+      font-size: 13px;
+    }
+
+    .disclaimer strong {
+      color: var(--green-dark);
+    }
+
+    .contact {
+      margin-top: 25px;
+      padding: 27px;
+      border-radius: 12px;
+      background: var(--green-dark);
+      color: white;
+      text-align: center;
+    }
+
+    .contact h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 25px;
+      margin: 0 0 8px;
+    }
+
+    .contact p {
+      color: #dedbd4;
+      margin: 0 0 18px;
+    }
+
+    .whatsapp {
+      display: inline-block;
+      background: var(--gold);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 13px 20px;
+      border-radius: 7px;
+    }
+
+    footer {
+      background: var(--green-dark);
+      color: #c8ccc8;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        display: none;
+      }
+
+      .grid,
+      .summary {
+        grid-template-columns: 1fr;
+      }
+
+      .calculator {
+        padding: 25px 18px;
+      }
+
+      .hero {
+        padding-top: 45px;
+      }
+
+      main {
+        width: 94%;
+      }
+
+      .result-row,
+      .total {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="brand" href="/">
+      <strong>JOSÉ & VÁSQUEZ</strong>
+      <span>ABOGADOS</span>
+    </a>
+
+    <nav>
+      <a href="/">Inicio</a>
+      <a href="/nosotros/">Nosotros</a>
+      <a href="/derecho-laboral-mendoza/">Derecho laboral</a>
+      <a href="/blog/">Actualidad</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Herramientas legales</div>
+
+    <h1>Calculadora de indemnización por despido</h1>
+
+    <p>
+      Obtené una estimación orientativa de los principales conceptos
+      que podrían integrar una liquidación laboral.
+    </p>
+  </div>
+</section>
+
+<main>
+
+  <section class="calculator">
+
+    <h2 class="section-title">Ingresá los datos de la relación laboral</h2>
+
+    <p class="intro">
+      Completá la información para calcular una estimación.
+    </p>
+
+    <form id="form">
+
+      <div class="grid">
+
+        <label>
+          Fecha de ingreso
+          <input id="fechaIngreso" type="date" required>
+        </label>
+
+        <label>
+          Fecha de despido
+          <input id="fechaDespido" type="date" required>
+        </label>
+
+        <label class="full">
+          Mejor remuneración mensual, normal y habitual
+          <input id="mrmnh" type="number" min="0" step="0.01"
+                 placeholder="Ej. 1500000" required>
+        </label>
+
+      </div>
+
+      <label class="check">
+        <input id="mismoSueldo" type="checkbox" checked>
+
+        <span>
+          Mi sueldo actual es igual a la mejor remuneración informada
+          <small>
+            Desmarcá esta opción si tu sueldo al momento del despido era diferente.
+          </small>
+        </span>
+      </label>
+
+      <label id="sueldoActualWrap" class="hidden">
+        Sueldo actual
+        <input id="sueldoActual" type="number" min="0" step="0.01">
+      </label>
+
+      <div class="grid">
+
+        <fieldset>
+          <legend>¿Te dieron preaviso?</legend>
+
+          <div class="radios">
+            <label>
+              <input type="radio" name="preaviso" value="si">
+              Sí
+            </label>
+
+            <label>
+              <input type="radio" name="preaviso" value="no" checked>
+              No
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>¿El despido fue con causa?</legend>
+
+          <div class="radios">
+            <label>
+              <input type="radio" name="causa" value="no" checked>
+              No
+            </label>
+
+            <label>
+              <input type="radio" name="causa" value="si">
+              Sí
+            </label>
+
+            <label>
+              <input type="radio" name="causa" value="duda">
+              No estoy seguro
+            </label>
+          </div>
+        </fieldset>
+
+      </div>
+
+      <fieldset id="aguinaldoJunioWrap" class="hidden">
+
+        <legend>¿Te pagaron el aguinaldo de junio?</legend>
+
+        <div class="radios">
+          <label>
+            <input type="radio" name="aguinaldoJunio" value="si" checked>
+            Sí
+          </label>
+
+          <label>
+            <input type="radio" name="aguinaldoJunio" value="no">
+            No
+          </label>
+        </div>
+
+      </fieldset>
+
+      <div id="error" class="hidden"></div>
+
+      <div class="actions">
+        <button class="calculate" type="submit">
+          Calcular indemnización
+        </button>
+
+        <button id="limpiar" class="clear" type="button">
+          Limpiar
+        </button>
+      </div>
+
+    </form>
+
+    <section id="results" class="hidden">
+
+      <div class="summary">
+
+        <div class="summary-box">
+          <small>Antigüedad</small>
+          <strong id="antiguedad"></strong>
+        </div>
+
+        <div class="summary-box">
+          <small>Períodos art. 245</small>
+          <strong id="periodos"></strong>
+        </div>
+
+        <div class="summary-box">
+          <small>Total estimado</small>
+          <strong id="totalSuperior"></strong>
+        </div>
+
+      </div>
+
+      <div id="avisoPrueba" class="notice hidden">
+        <strong>Período de prueba.</strong>
+        Según las fechas ingresadas, la relación laboral se encontraría
+        dentro de los primeros seis meses. Por ello, este cálculo no incluye
+        indemnización por antigüedad ni integración del mes de despido.
+      </div>
+
+      <div id="avisoCausa" class="notice hidden">
+        <strong>Despido con causa.</strong>
+        Si la causa invocada por el empleador resulta jurídicamente válida,
+        las indemnizaciones propias de un despido sin causa pueden no
+        corresponder. Esta estimación permite conocer los importes que
+        podrían resultar relevantes si la causa fuera cuestionada.
+      </div>
+
+      <div class="result-table">
+
+        <div class="result-heading">
+          <h2>Liquidación estimada</h2>
+        </div>
+
+        <div id="filas"></div>
+
+        <div class="total">
+          <span>TOTAL ESTIMADO</span>
+          <span id="totalFinal"></span>
+        </div>
+
+      </div>
+
+      <div class="disclaimer">
+        <strong>Importante:</strong>
+        El resultado constituye una estimación orientativa realizada
+        exclusivamente sobre la información ingresada. La liquidación
+        definitiva puede variar según las circunstancias particulares de
+        la relación laboral, la remuneración computable, el convenio
+        colectivo aplicable, conceptos salariales, normativa vigente y
+        criterios judiciales. Esta herramienta no sustituye el
+        asesoramiento ni el análisis profesional del caso.
+      </div>
+
+      <div class="contact">
+
+        <h3>¿Querés que revisemos tu liquidación?</h3>
+
+        <p>
+          Podemos analizar tu caso y verificar qué conceptos podrían corresponder.
+        </p>
+
+        <a class="whatsapp"
+           href="https://wa.me/542615599687?text=Hola%2C%20utilic%C3%A9%20la%20calculadora%20de%20indemnizaci%C3%B3n%20de%20la%20web%20y%20quisiera%20consultar%20mi%20caso."
+           target="_blank"
+           rel="noopener">
+          Consultar por WhatsApp
+        </a>
+
+      </div>
+
+    </section>
+
+  </section>
+
+</main>
+
+<footer>
+  José & Vásquez Abogados · Mendoza, Argentina
+</footer>
+
+<script>
+(function () {
+
+  const form = document.getElementById("form");
+
+  const fechaIngreso = document.getElementById("fechaIngreso");
+  const fechaDespido = document.getElementById("fechaDespido");
+
+  const mrmnh = document.getElementById("mrmnh");
+
+  const mismoSueldo = document.getElementById("mismoSueldo");
+  const sueldoActual = document.getElementById("sueldoActual");
+  const sueldoActualWrap = document.getElementById("sueldoActualWrap");
+
+  const aguinaldoJunioWrap =
+    document.getElementById("aguinaldoJunioWrap");
+
+  const results = document.getElementById("results");
+  const error = document.getElementById("error");
+  const filas = document.getElementById("filas");
+
+  const formatoPesos = new Intl.NumberFormat("es-AR", {
+    style: "currency",
+    currency: "ARS",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+
+
+  function convertirFecha(valor) {
+
+    const partes = valor.split("-").map(Number);
+
+    return new Date(Date.UTC(
+      partes[0],
+      partes[1] - 1,
+      partes[2]
+    ));
+  }
+
+
+  function diasMes(anio, mes) {
+
+    return new Date(
+      Date.UTC(anio, mes, 0)
+    ).getUTCDate();
+  }
+
+
+  function agregarMeses(fecha, cantidad) {
+
+    const anio = fecha.getUTCFullYear();
+    const mes = fecha.getUTCMonth();
+    const dia = fecha.getUTCDate();
+
+    const totalMeses = mes + cantidad;
+
+    const nuevoAnio =
+      anio + Math.floor(totalMeses / 12);
+
+    const nuevoMes =
+      ((totalMeses % 12) + 12) % 12;
+
+    const nuevoDia =
+      Math.min(
+        dia,
+        diasMes(nuevoAnio, nuevoMes + 1)
+      );
+
+    return new Date(
+      Date.UTC(nuevoAnio, nuevoMes, nuevoDia)
+    );
+  }
+
+
+  function agregarAnios(fecha, cantidad) {
+
+    const anio = fecha.getUTCFullYear() + cantidad;
+    const mes = fecha.getUTCMonth();
+    const dia = fecha.getUTCDate();
+
+    return new Date(
+      Date.UTC(
+        anio,
+        mes,
+        Math.min(dia, diasMes(anio, mes + 1))
+      )
+    );
+  }
+
+
+  function aniosCompletos(inicio, fin) {
+
+    let anios =
+      fin.getUTCFullYear() -
+      inicio.getUTCFullYear();
+
+    if (agregarAnios(inicio, anios) > fin) {
+      anios--;
+    }
+
+    return Math.max(0, anios);
+  }
+
+
+  function antiguedadDetallada(inicio, fin) {
+
+    let anios =
+      fin.getUTCFullYear() -
+      inicio.getUTCFullYear();
+
+    let meses =
+      fin.getUTCMonth() -
+      inicio.getUTCMonth();
+
+    let dias =
+      fin.getUTCDate() -
+      inicio.getUTCDate();
+
+    if (dias < 0) {
+
+      meses--;
+
+      let mesAnterior = fin.getUTCMonth();
+      let anioAnterior = fin.getUTCFullYear();
+
+      if (mesAnterior === 0) {
+        mesAnterior = 12;
+        anioAnterior--;
+      }
+
+      dias += diasMes(
+        anioAnterior,
+        mesAnterior
+      );
+    }
+
+    if (meses < 0) {
+      anios--;
+      meses += 12;
+    }
+
+    return {
+      anios,
+      meses,
+      dias
+    };
+  }
+
+
+  function diferenciaDias(inicio, fin) {
+
+    return Math.floor(
+      (fin - inicio) / 86400000
+    );
+  }
+
+
+  function radio(nombre) {
+
+    const seleccionado =
+      document.querySelector(
+        'input[name="' + nombre + '"]:checked'
+      );
+
+    return seleccionado
+      ? seleccionado.value
+      : null;
+  }
+
+
+  function mostrarError(texto) {
+
+    error.textContent = texto;
+    error.classList.remove("hidden");
+    results.classList.add("hidden");
+  }
+
+
+  function agregarFila(nombre, valor) {
+
+    if (Math.abs(valor) < 0.005) {
+      return;
+    }
+
+    const fila = document.createElement("div");
+    fila.className = "result-row";
+
+    const concepto = document.createElement("span");
+    concepto.textContent = nombre;
+
+    const importe = document.createElement("span");
+    importe.textContent =
+      formatoPesos.format(valor);
+
+    fila.appendChild(concepto);
+    fila.appendChild(importe);
+
+    filas.appendChild(fila);
+  }
+
+
+  mismoSueldo.addEventListener("change", function () {
+
+    sueldoActualWrap.classList.toggle(
+      "hidden",
+      mismoSueldo.checked
+    );
+  });
+
+
+  fechaDespido.addEventListener("change", function () {
+
+    if (!fechaDespido.value) {
+      aguinaldoJunioWrap.classList.add("hidden");
+      return;
+    }
+
+    const fecha =
+      convertirFecha(fechaDespido.value);
+
+    const mes =
+      fecha.getUTCMonth() + 1;
+
+    aguinaldoJunioWrap.classList.toggle(
+      "hidden",
+      mes <= 6
+    );
+  });
+
+
+  form.addEventListener("submit", function (evento) {
+
+    evento.preventDefault();
+
+    error.classList.add("hidden");
+
+    if (
+      !fechaIngreso.value ||
+      !fechaDespido.value
+    ) {
+
+      mostrarError(
+        "Completá las fechas de ingreso y despido."
+      );
+
+      return;
+    }
+
+
+    const ingreso =
+      convertirFecha(fechaIngreso.value);
+
+    const despido =
+      convertirFecha(fechaDespido.value);
+
+
+    if (despido < ingreso) {
+
+      mostrarError(
+        "La fecha de despido no puede ser anterior a la fecha de ingreso."
+      );
+
+      return;
+    }
+
+
+    const mejorRemuneracion =
+      Number(mrmnh.value);
+
+    const sueldo =
+      mismoSueldo.checked
+        ? mejorRemuneracion
+        : Number(sueldoActual.value);
+
+
+    if (
+      !(mejorRemuneracion > 0) ||
+      !(sueldo > 0)
+    ) {
+
+      mostrarError(
+        "Ingresá una remuneración válida."
+      );
+
+      return;
+    }
+
+
+    /* =========================
+       ANTIGÜEDAD
+       ========================= */
+
+    const antiguedad =
+      antiguedadDetallada(
+        ingreso,
+        despido
+      );
+
+    const anios =
+      aniosCompletos(
+        ingreso,
+        despido
+      );
+
+
+    const aniversario =
+      agregarAnios(
+        ingreso,
+        anios
+      );
+
+
+    const tresMesesDespues =
+      agregarMeses(
+        aniversario,
+        3
+      );
+
+
+    let periodos =
+      anios;
+
+    if (despido > tresMesesDespues) {
+      periodos++;
+    }
+
+
+    /* =========================
+       PERÍODO DE PRUEBA
+       ========================= */
+
+    const finPeriodoPrueba =
+      agregarMeses(
+        ingreso,
+        6
+      );
+
+    const periodoPrueba =
+      despido <= finPeriodoPrueba;
+
+
+    /* =========================
+       ART. 245
+       Sin tope CCT
+       Sin Vizzoti
+       ========================= */
+
+    let indemnizacionAntiguedad = 0;
+
+    if (!periodoPrueba) {
+
+      indemnizacionAntiguedad =
+        periodos *
+        mejorRemuneracion;
+
+      if (indemnizacionAntiguedad <
+          mejorRemuneracion) {
+
+        indemnizacionAntiguedad =
+          mejorRemuneracion;
+      }
+    }
+
+
+    /* =========================
+       PREAVISO
+       ========================= */
+
+    const preavisoOtorgado =
+      radio("preaviso") === "si";
+
+    let mesesPreaviso = 0;
+
+    if (
+      !periodoPrueba &&
+      !preavisoOtorgado
+    ) {
+
+      mesesPreaviso =
+        anios <= 5
+          ? 1
+          : 2;
+    }
+
+
+    const preaviso =
+      sueldo *
+      mesesPreaviso;
+
+    const sacPreaviso =
+      preaviso / 12;
+
+
+    /* =========================
+       MES DEL DESPIDO
+       ========================= */
+
+    const anioDespido =
+      despido.getUTCFullYear();
+
+    const mesDespido =
+      despido.getUTCMonth() + 1;
+
+    const diaDespido =
+      despido.getUTCDate();
+
+    const totalDiasMes =
+      diasMes(
+        anioDespido,
+        mesDespido
+      );
+
+
+    const diasFaltantes =
+      totalDiasMes -
+      diaDespido;
+
+
+    let integracion = 0;
+
+    if (
+      !periodoPrueba &&
+      !preavisoOtorgado &&
+      diasFaltantes > 0
+    ) {
+
+      integracion =
+        (sueldo / totalDiasMes) *
+        diasFaltantes;
+    }
+
+
+    const sacIntegracion =
+      integracion / 12;
+
+
+    /* =========================
+       DÍAS TRABAJADOS
+       ========================= */
+
+    const diasTrabajados =
+      (sueldo / totalDiasMes) *
+      diaDespido;
+
+
+    /* =========================
+       VACACIONES
+       
+       IMPORTANTE:
+       NO se proporcionalizan
+       por días trabajados del año.
+       
+       Se toman directamente
+       los días legales según
+       antigüedad al despido.
+       ========================= */
+
+    let diasVacaciones;
+
+    if (anios < 5) {
+
+      diasVacaciones = 14;
+
+    } else if (anios < 10) {
+
+      diasVacaciones = 21;
+
+    } else if (anios < 20) {
+
+      diasVacaciones = 28;
+
+    } else {
+
+      diasVacaciones = 35;
+    }
+
+
+    const valorDiaVacaciones =
+      sueldo / 25;
+
+
+    const vacaciones =
+      valorDiaVacaciones *
+      diasVacaciones;
+
+
+    const sacVacaciones =
+      vacaciones / 12;
+
+
+    /* =========================
+       SAC PROPORCIONAL
+       ========================= */
+
+    const enero1 =
+      new Date(
+        Date.UTC(anioDespido, 0, 1)
+      );
+
+
+    let sacProporcional = 0;
+
+
+    if (mesDespido <= 6) {
+
+      const junio30 =
+        new Date(
+          Date.UTC(
+            anioDespido,
+            5,
+            30
+          )
+        );
+
+
+      const inicioSemestre =
+        ingreso > enero1
+          ? ingreso
+          : enero1;
+
+
+      const diasSemestre =
+        diferenciaDias(
+          enero1,
+          junio30
+        ) + 1;
+
+
+      const diasTrabajadosSemestre =
+        Math.max(
+          0,
+          diferenciaDias(
+            inicioSemestre,
+            despido
+          ) + 1
+        );
+
+
+      sacProporcional =
+        (sueldo / 2) *
+        (
+          diasTrabajadosSemestre /
+          diasSemestre
+        );
+
+    } else {
+
+      const julio1 =
+        new Date(
+          Date.UTC(
+            anioDespido,
+            6,
+            1
+          )
+        );
+
+
+      const diciembre31 =
+        new Date(
+          Date.UTC(
+            anioDespido,
+            11,
+            31
+          )
+        );
+
+
+      const inicioSegundoSemestre =
+        ingreso > julio1
+          ? ingreso
+          : julio1;
+
+
+      const diasSegundoSemestre =
+        diferenciaDias(
+          julio1,
+          diciembre31
+        ) + 1;
+
+
+      const diasTrabajadosSegundo =
+        Math.max(
+          0,
+          diferenciaDias(
+            inicioSegundoSemestre,
+            despido
+          ) + 1
+        );
+
+
+      sacProporcional =
+        (sueldo / 2) *
+        (
+          diasTrabajadosSegundo /
+          diasSegundoSemestre
+        );
+
+
+      if (
+        radio("aguinaldoJunio") === "no"
+      ) {
+
+        const junio30 =
+          new Date(
+            Date.UTC(
+              anioDespido,
+              5,
+              30
+            )
+          );
+
+
+        const inicioPrimerSemestre =
+          ingreso > enero1
+            ? ingreso
+            : enero1;
+
+
+        if (
+          inicioPrimerSemestre <= junio30
+        ) {
+
+          const diasPrimerSemestre =
+            diferenciaDias(
+              enero1,
+              junio30
+            ) + 1;
+
+
+          const diasTrabajadosPrimero =
+            diferenciaDias(
+              inicioPrimerSemestre,
+              junio30
+            ) + 1;
+
+
+          sacProporcional +=
+            (sueldo / 2) *
+            (
+              diasTrabajadosPrimero /
+              diasPrimerSemestre
+            );
+        }
+      }
+    }
+
+
+    /* =========================
+       RESULTADOS
+       ========================= */
+
+    const conceptos = [
+
+      [
+        "Indemnización por antigüedad",
+        indemnizacionAntiguedad
+      ],
+
+      [
+        "Indemnización sustitutiva de preaviso",
+        preaviso
+      ],
+
+      [
+        "SAC sobre preaviso",
+        sacPreaviso
+      ],
+
+      [
+        "Integración del mes de despido",
+        integracion
+      ],
+
+      [
+        "SAC sobre integración",
+        sacIntegracion
+      ],
+
+      [
+        "Días trabajados del mes",
+        diasTrabajados
+      ],
+
+      [
+        "SAC proporcional",
+        sacProporcional
+      ],
+
+      [
+        "Vacaciones no gozadas (" +
+        diasVacaciones +
+        " días)",
+        vacaciones
+      ],
+
+      [
+        "SAC sobre vacaciones",
+        sacVacaciones
+      ]
+
+    ];
+
+
+    const total =
+      conceptos.reduce(
+        function (acumulado, concepto) {
+
+          return acumulado +
+                 concepto[1];
+
+        },
+        0
+      );
+
+
+    filas.innerHTML = "";
+
+
+    conceptos.forEach(
+      function (concepto) {
+
+        agregarFila(
+          concepto[0],
+          concepto[1]
+        );
+      }
+    );
+
+
+    document.getElementById(
+      "antiguedad"
+    ).textContent =
+      antiguedad.anios +
+      " años, " +
+      antiguedad.meses +
+      " meses y " +
+      antiguedad.dias +
+      " días";
+
+
+    document.getElementById(
+      "periodos"
+    ).textContent =
+      periodoPrueba
+        ? "No aplica"
+        : periodos +
+          (periodos === 1
+            ? " período"
+            : " períodos");
+
+
+    document.getElementById(
+      "totalSuperior"
+    ).textContent =
+      formatoPesos.format(total);
+
+
+    document.getElementById(
+      "totalFinal"
+    ).textContent =
+      formatoPesos.format(total);
+
+
+    document.getElementById(
+      "avisoPrueba"
+    ).classList.toggle(
+      "hidden",
+      !periodoPrueba
+    );
+
+
+    const causa =
+      radio("causa");
+
+
+    document.getElementById(
+      "avisoCausa"
+    ).classList.toggle(
+      "hidden",
+      causa === "no"
+    );
+
+
+    results.classList.remove("hidden");
+
+
+    results.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+
+  });
+
+
+  document.getElementById(
+    "limpiar"
+  ).addEventListener(
+    "click",
+    function () {
+
+      form.reset();
+
+      mismoSueldo.checked = true;
+
+      sueldoActualWrap.classList.add(
+        "hidden"
+      );
+
+      aguinaldoJunioWrap.classList.add(
+        "hidden"
+      );
+
+      results.classList.add(
+        "hidden"
+      );
+
+      error.classList.add(
+        "hidden"
+      );
+    }
+  );
+
+})();
+</script>
+
+</body>
+</html>
