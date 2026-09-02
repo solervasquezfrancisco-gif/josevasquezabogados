@@ -99,3 +99,129 @@
 .article-cover{width:100%;max-height:520px;object-fit:cover;margin:0 0 34px;border-radius:3px}
 .blog-card-image{width:100%;aspect-ratio:16/9;object-fit:cover;margin-bottom:18px;border-radius:2px}
 .legal-note{font-size:.86rem;opacity:.72;border-left:2px solid var(--wine,#681517);padding-left:14px;margin-bottom:30px}
+/* ========================================
+   HERRAMIENTAS LEGALES
+======================================== */
+
+.legal-tools {
+  padding: 100px 0;
+  background: #f4f0e7;
+}
+
+.legal-tools-card {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.65fr .75fr;
+  min-height: 340px;
+  background: #f9f7f1;
+  border: 1px solid rgba(30, 57, 51, .15);
+  box-shadow: 0 20px 55px rgba(25, 48, 43, .08);
+}
+
+.legal-tools-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90px;
+  height: 3px;
+  background: #a78b5c;
+}
+
+.legal-tools-copy {
+  padding: 58px 62px;
+}
+
+.legal-tools-copy h2 {
+  max-width: 650px;
+  margin: 14px 0 18px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.25rem, 4vw, 3.4rem);
+  line-height: 1;
+  font-weight: 600;
+  color: #173b36;
+}
+
+.legal-tools-copy > p {
+  max-width: 630px;
+  margin: 0;
+  color: #606965;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.legal-tools-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 32px;
+}
+
+.legal-tools-side {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 45px 42px;
+  background: #173b36;
+  color: #fff;
+}
+
+.legal-tools-number {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 5rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, .12);
+}
+
+.legal-tools-side strong {
+  display: block;
+  margin-bottom: 9px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.65rem;
+  line-height: 1.1;
+  font-weight: 600;
+}
+
+.legal-tools-side p {
+  margin: 0;
+  color: rgba(255, 255, 255, .7);
+  font-size: .9rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 800px) {
+
+  .legal-tools {
+    padding: 70px 0;
+  }
+
+  .legal-tools-card {
+    grid-template-columns: 1fr;
+  }
+
+  .legal-tools-copy {
+    padding: 42px 28px;
+  }
+
+  .legal-tools-copy h2 {
+    font-size: 2.4rem;
+  }
+
+  .legal-tools-side {
+    min-height: 190px;
+    padding: 30px 28px;
+  }
+
+  .legal-tools-number {
+    font-size: 3.5rem;
+  }
+
+  .legal-tools-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+}
