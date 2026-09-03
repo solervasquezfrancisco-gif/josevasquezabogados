@@ -1,0 +1,1264 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta
+    name="description"
+    content="José & Vasquez Abogados. Estudio jurídico en Mendoza. Derecho civil, laboral, empresarial, previsional, amparos, familia y sucesiones."
+  />
+
+  <meta name="robots" content="index,follow" />
+
+  <meta
+    property="og:title"
+    content="José & Vasquez Abogados | Estudio Jurídico en Mendoza"
+  />
+
+  <meta
+    property="og:description"
+    content="Asesoramiento legal claro, estratégico y personalizado para personas, profesionales y empresas."
+  />
+
+  <meta property="og:type" content="website" />
+
+  <title>José & Vasquez Abogados | Estudio Jurídico en Mendoza</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="assets/styles.css" />
+
+  <style>
+    /* =========================
+       MENÚ DESPLEGABLE: HERRAMIENTAS
+    ========================== */
+
+    .nav-dropdown {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-dropdown summary {
+      list-style: none;
+      cursor: pointer;
+      font: inherit;
+      color: inherit;
+      user-select: none;
+    }
+
+    .nav-dropdown summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .nav-dropdown summary::after {
+      content: "▾";
+      display: inline-block;
+      margin-left: 6px;
+      font-size: 0.72em;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-dropdown[open] summary::after {
+      transform: rotate(180deg);
+    }
+
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%);
+      min-width: 280px;
+      padding: 10px;
+      background: #fff;
+      border: 1px solid rgba(20, 37, 63, 0.12);
+      border-radius: 10px;
+      box-shadow: 0 16px 40px rgba(20, 37, 63, 0.14);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.18s ease, visibility 0.18s ease, transform 0.18s ease;
+      z-index: 1000;
+    }
+
+    .nav-dropdown-menu::before {
+      content: "";
+      position: absolute;
+      top: -16px;
+      left: 0;
+      right: 0;
+      height: 16px;
+    }
+
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 11px 12px;
+      border-radius: 7px;
+      white-space: nowrap;
+    }
+
+    .nav-dropdown-menu a:hover,
+    .nav-dropdown-menu a:focus-visible {
+      background: rgba(20, 37, 63, 0.06);
+    }
+
+    .nav-dropdown[open] .nav-dropdown-menu,
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* =========================
+       TARJETAS DE ÁREAS:
+       TODA LA TARJETA CLICKEABLE
+    ========================== */
+
+    .practice-card {
+      position: relative;
+    }
+
+    .practice-card .card-link {
+      position: absolute;
+      inset: 0;
+      z-index: 20;
+      display: block;
+      cursor: pointer;
+    }
+
+    .practice-card > *:not(.card-link) {
+      position: relative;
+      z-index: 1;
+    }
+
+    .practice-card:hover {
+      cursor: pointer;
+    }
+
+    /* La tarjeta de consulta conserva su enlace visible normal */
+    .practice-card.consultation-card > a {
+      position: relative;
+      z-index: 21;
+    }
+
+    @media (max-width: 900px) {
+      .nav-dropdown {
+        display: block;
+        width: 100%;
+      }
+
+      .nav-dropdown summary {
+        width: 100%;
+      }
+
+      .nav-dropdown-menu {
+        position: static;
+        transform: none;
+        min-width: 0;
+        width: 100%;
+        margin-top: 8px;
+        padding: 6px 0 0 12px;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        background: transparent;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        display: none;
+      }
+
+      .nav-dropdown[open] .nav-dropdown-menu {
+        display: block;
+        transform: none;
+      }
+
+      .nav-dropdown:hover:not([open]) .nav-dropdown-menu {
+        display: none;
+      }
+
+      .nav-dropdown-menu a {
+        white-space: normal;
+      }
+    }
+  </style>
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "José & Vasquez Abogados",
+    "areaServed": "Mendoza, Argentina",
+    "description": "Estudio jurídico con asesoramiento en derecho civil, laboral, empresarial, previsional, amparos, familia y sucesiones."
+  }
+  </script>
+
+  <style>
+    .whatsapp-float {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .whatsapp-icon {
+      width: 30px;
+      height: 30px;
+      display: block;
+      color: currentColor;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header class="site-header" id="inicio">
+
+    <div class="container nav-wrap">
+
+      <a
+        class="brand brand-image"
+        href="#inicio"
+        aria-label="José & Vasquez Abogados - Ir al inicio"
+      >
+        <img
+          src="assets/logo-jv-header.png"
+          alt="José & Vasquez Abogados"
+        />
+      </a>
+
+      <button
+        class="menu-toggle"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+      <nav
+        class="main-nav"
+        aria-label="Navegación principal"
+      >
+        <a href="#estudio">El estudio</a>
+        <a href="nosotros/">Nosotros</a>
+        <a href="#areas">Áreas de práctica</a>
+
+        <details class="nav-dropdown">
+          <summary>Herramientas</summary>
+
+          <div class="nav-dropdown-menu">
+            <a href="#herramientas">Ver herramientas</a>
+            <a href="calculadora-indemnizacion-despido/">
+              Calculadora de indemnización por despido
+            </a>
+            <a href="calculadora-liquidacion-final-renuncia/">
+              Liquidación final por renuncia
+            </a>
+          </div>
+        </details>
+
+        <a href="blog/">Blog</a>
+        <a href="#contacto" class="nav-cta">Contacto</a>
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+      <div class="container hero-grid">
+
+        <div class="hero-copy reveal">
+
+          <span class="eyebrow">
+            Estudio jurídico · Mendoza
+          </span>
+
+          <h1>
+            Asesoramiento legal con criterio,
+            estrategia y cercanía.
+          </h1>
+
+          <p>
+            Trabajamos con personas, profesionales y empresas que
+            necesitan respuestas claras, defensa sólida y
+            acompañamiento real en cada etapa.
+          </p>
+
+          <div class="hero-actions">
+
+            <a
+              class="btn btn-primary"
+              href="#contacto"
+            >
+              Solicitar una consulta
+            </a>
+
+            <a
+              class="btn btn-ghost"
+              href="#areas"
+            >
+              Ver áreas de práctica
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="hero-card reveal delay-1">
+
+          <p class="hero-card-kicker">
+            Enfoque profesional
+          </p>
+
+          <h2>
+            Soluciones jurídicas pensadas para cada caso.
+          </h2>
+
+          <p>
+            Analizamos el problema, definimos una estrategia y
+            mantenemos una comunicación directa durante todo
+            el proceso.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         EL ESTUDIO
+    ========================== -->
+
+    <section
+      class="intro"
+      id="estudio"
+    >
+
+      <div class="container intro-grid">
+
+        <div class="section-heading reveal">
+
+          <span class="eyebrow dark">
+            El estudio
+          </span>
+
+          <h2>
+            Derecho ejercido con responsabilidad
+            y mirada estratégica.
+          </h2>
+
+        </div>
+
+
+        <div class="intro-copy reveal delay-1">
+
+          <p>
+            José & Vasquez Abogados es un estudio jurídico con
+            base en Mendoza orientado a brindar soluciones
+            concretas, comprensibles y técnicamente sólidas.
+          </p>
+
+          <p>
+            Priorizamos el trato directo, la prevención de
+            conflictos cuando es posible y una defensa firme
+            cuando el caso exige litigio.
+          </p>
+
+
+          <div class="stats">
+
+            <div>
+              <strong>01</strong>
+              <span>Atención personalizada</span>
+            </div>
+
+            <div>
+              <strong>02</strong>
+              <span>Estrategia jurídica clara</span>
+            </div>
+
+            <div>
+              <strong>03</strong>
+              <span>Seguimiento cercano</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         NOSOTROS
+    ========================== -->
+
+    <section
+      class="team"
+      id="nosotros"
+    >
+
+      <div class="container">
+
+        <div class="section-heading team-heading reveal">
+
+          <div>
+
+            <span class="eyebrow dark">
+              Nosotros
+            </span>
+
+            <h2>
+              Un estudio cercano, con atención
+              directa de sus abogados.
+            </h2>
+
+          </div>
+
+          <p>
+            Creemos que una buena estrategia jurídica empieza por
+            comprender el problema de cada cliente. Por eso
+            trabajamos con trato personal, criterio técnico y
+            comunicación constante.
+          </p>
+
+        </div>
+
+
+        <div class="team-grid">
+
+          <article class="person-card reveal">
+
+            <div
+              class="person-photo person-photo-one"
+              role="img"
+              aria-label="Fotografía de la Dra. Martina José"
+            ></div>
+
+            <div class="person-info">
+
+              <span>Socia · Abogada</span>
+
+              <h3>
+                Dra. Martina José
+              </h3>
+
+              <p>
+                Asesoramiento y litigación con una mirada práctica,
+                orientada a encontrar soluciones claras y sostenibles
+                para cada situación.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="person-card reveal delay-1">
+
+            <div
+              class="person-photo person-photo-two"
+              role="img"
+              aria-label="Fotografía del Dr. Francisco Vasquez"
+            ></div>
+
+            <div class="person-info">
+
+              <span>Socio · Abogado</span>
+
+              <h3>
+                Dr. Francisco Vasquez
+              </h3>
+
+              <p>
+                Asesoramiento estratégico a particulares y empresas,
+                con especial atención a la prevención de conflictos
+                y la defensa de los intereses del cliente.
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ÁREAS DE PRÁCTICA
+    ========================== -->
+
+    <section
+      class="practice"
+      id="areas"
+    >
+
+      <div class="container">
+
+        <div class="section-heading centered reveal">
+
+          <span class="eyebrow dark">
+            Áreas de práctica
+          </span>
+
+          <h2>
+            Asesoramiento integral para personas y empresas.
+          </h2>
+
+          <p>
+            Abordamos cada asunto con una estrategia específica,
+            combinando prevención, negociación y litigación cuando
+            el caso lo requiere.
+          </p>
+
+        </div>
+
+
+        <div class="cards-grid">
+
+          <article class="practice-card reveal">
+
+            <span class="card-num">01</span>
+
+            <h3>Derecho civil</h3>
+
+            <p>
+              Daños y perjuicios, accidentes de tránsito,
+              responsabilidad civil, contratos, cobros, desalojos
+              y conflictos patrimoniales.
+            </p>
+
+            <a
+              class="card-link"
+              href="derecho-civil-mendoza/"
+              aria-label="Ver Derecho civil"
+            ></a>
+
+          </article>
+
+
+          <article class="practice-card reveal delay-1">
+
+            <span class="card-num">02</span>
+
+            <h3>Derecho laboral</h3>
+
+            <p>
+              Despidos, trabajo no registrado, accidentes laborales,
+              diferencias salariales, reclamos e intervención preventiva.
+            </p>
+
+            <a
+              class="card-link"
+              href="derecho-laboral-mendoza/"
+              aria-label="Ver Derecho laboral"
+            ></a>
+
+          </article>
+
+
+          <article class="practice-card reveal delay-2 accent-card">
+
+            <span class="card-num">03</span>
+
+            <h3>Derecho empresarial</h3>
+
+            <p>
+              Asesoramiento jurídico externo, contratos comerciales,
+              cobranzas, prevención de contingencias y soporte legal
+              para empresas.
+            </p>
+
+            <a
+              class="card-link"
+              href="derecho-empresarial-mendoza/"
+              aria-label="Ver Derecho empresarial"
+            ></a>
+
+          </article>
+
+
+          <article class="practice-card reveal">
+
+            <span class="card-num">04</span>
+
+            <h3>Derecho previsional</h3>
+
+            <p>
+              Jubilaciones, pensiones, reconocimiento de servicios,
+              reajustes y acompañamiento en trámites y reclamos
+              previsionales.
+            </p>
+
+            <a
+              class="card-link"
+              href="derecho-previsional-mendoza/"
+              aria-label="Ver Derecho previsional"
+            ></a>
+
+          </article>
+
+
+          <article class="practice-card reveal delay-1">
+
+            <span class="card-num">05</span>
+
+            <h3>Amparos</h3>
+
+            <p>
+              Acciones de amparo frente a afectaciones urgentes de
+              derechos, especialmente en materia de salud, cobertura
+              y prestaciones.
+            </p>
+
+            <a
+              class="card-link"
+              href="amparos-mendoza/"
+              aria-label="Ver Amparos"
+            ></a>
+
+          </article>
+
+
+          <article class="practice-card reveal delay-2">
+
+            <span class="card-num">06</span>
+
+            <h3>Familia y sucesiones</h3>
+
+            <p>
+              Divorcios, alimentos, cuidado personal, régimen de
+              comunicación, sucesiones y planificación patrimonial.
+            </p>
+
+            <a
+              class="card-link"
+              href="familia-sucesiones-mendoza/"
+              aria-label="Ver Familia y sucesiones"
+            ></a>
+
+          </article>
+
+
+          <article class="practice-card reveal">
+
+            <span class="card-num">07</span>
+
+            <h3>Consumidores y seguros</h3>
+
+            <p>
+              Incumplimientos, garantías, servicios defectuosos,
+              relaciones de consumo y controversias vinculadas
+              con seguros.
+            </p>
+
+            <a
+              class="card-link"
+              href="consumidor-seguros-mendoza/"
+              aria-label="Ver Consumidores y seguros"
+            ></a>
+
+          </article>
+
+
+          <article class="practice-card reveal delay-1">
+
+            <span class="card-num">08</span>
+
+            <h3>Contratos y cobranzas</h3>
+
+            <p>
+              Redacción, revisión y negociación contractual,
+              reconocimiento de deudas, ejecuciones y recupero
+              de créditos.
+            </p>
+
+            <a
+              class="card-link"
+              href="contratos-cobranzas-mendoza/"
+              aria-label="Ver Contratos y cobranzas"
+            ></a>
+
+          </article>
+
+
+          <article class="practice-card reveal delay-2 consultation-card">
+
+            <span class="card-num">09</span>
+
+            <h3>¿No encontrás tu caso?</h3>
+
+            <p>
+              Contanos brevemente tu situación. Podemos analizarla
+              y decirte si podemos intervenir o indicarte cómo avanzar.
+            </p>
+
+            <a href="#contacto">
+              Realizar una consulta →
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CÓMO TRABAJAMOS
+    ========================== -->
+
+    <section
+      class="method"
+      id="metodo"
+    >
+
+      <div class="method-grid">
+
+        <div
+          class="method-image reveal"
+          role="img"
+          aria-label="Biblioteca jurídica y espacio de trabajo"
+        ></div>
+
+
+        <div class="method-copy reveal delay-1">
+
+          <span class="eyebrow">
+            Cómo trabajamos
+          </span>
+
+          <h2>
+            Un proceso simple para decisiones importantes.
+          </h2>
+
+
+          <div class="steps">
+
+            <div class="step">
+
+              <span>1</span>
+
+              <div>
+                <h3>Escuchamos</h3>
+                <p>
+                  Conocemos el problema, los antecedentes y
+                  el objetivo concreto.
+                </p>
+              </div>
+
+            </div>
+
+
+            <div class="step">
+
+              <span>2</span>
+
+              <div>
+                <h3>Evaluamos</h3>
+                <p>
+                  Analizamos riesgos, alternativas, tiempos
+                  y costos antes de avanzar.
+                </p>
+              </div>
+
+            </div>
+
+
+            <div class="step">
+
+              <span>3</span>
+
+              <div>
+                <h3>Actuamos</h3>
+                <p>
+                  Definimos una estrategia y ejecutamos cada
+                  paso con seguimiento directo.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+<!-- =========================
+     HERRAMIENTAS LEGALES
+========================== -->
+
+<section
+  class="legal-tools"
+  id="herramientas"
+>
+
+  <div class="container">
+
+    <div class="section-heading centered reveal" style="margin-bottom: 36px;">
+
+      <span class="eyebrow dark">
+        Herramientas legales
+      </span>
+
+      <h2>
+        Calculadoras laborales gratuitas y orientativas.
+      </h2>
+
+      <p>
+        Utilizá nuestras herramientas para obtener una primera estimación
+        de distintos conceptos laborales. Los resultados son orientativos
+        y no reemplazan el análisis profesional del caso.
+      </p>
+
+    </div>
+
+    <div class="cards-grid">
+
+      <article class="practice-card reveal">
+
+        <span class="card-num">01</span>
+
+        <h3>Indemnización por despido</h3>
+
+        <p>
+          Estimá los principales conceptos que podrían corresponder
+          ante un despido, según la información de tu relación laboral.
+        </p>
+
+        <a
+          class="card-link"
+          href="calculadora-indemnizacion-despido/"
+          aria-label="Abrir calculadora de indemnización por despido"
+        ></a>
+
+      </article>
+
+      <article class="practice-card reveal delay-1 accent-card">
+
+        <span class="card-num">02</span>
+
+        <h3>Liquidación final por renuncia</h3>
+
+        <p>
+          Calculá una estimación de días trabajados, SAC proporcional,
+          vacaciones proporcionales y otros conceptos pendientes.
+        </p>
+
+        <a
+          class="card-link"
+          href="calculadora-liquidacion-final-renuncia/"
+          aria-label="Abrir calculadora de liquidación final por renuncia"
+        ></a>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+    <!-- =========================
+         BLOG
+    ========================== -->
+
+    <section
+      class="blog-preview"
+      id="blog"
+    >
+
+      <div class="container">
+
+        <div class="blog-top reveal">
+
+          <div class="section-heading">
+
+            <span class="eyebrow dark">
+              Actualidad jurídica
+            </span>
+
+            <h2>
+              Información útil para tomar mejores decisiones.
+            </h2>
+
+          </div>
+
+
+          <div class="blog-intro">
+
+            <p>
+              En este espacio publicaremos análisis, novedades y
+              respuestas a consultas frecuentes. Además de informar,
+              cada artículo estará estructurado para mejorar el
+              posicionamiento orgánico del estudio en buscadores.
+            </p>
+
+            <a
+              href="blog/"
+              class="text-link"
+            >
+              Ir al blog →
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="blog-grid">
+
+          <article class="post-card reveal">
+
+            <span class="post-category">
+              Amparos
+            </span>
+
+            <h3>
+              Amparos de salud: cuándo puede ser necesaria una
+              respuesta judicial urgente
+            </h3>
+
+            <p>
+              Una guía inicial sobre cobertura médica, prestaciones
+              y situaciones en las que la demora puede afectar
+              derechos esenciales.
+            </p>
+
+            <a href="blog/amparo-obra-social-medicamento-tratamiento/">
+              Leer artículo →
+            </a>
+
+          </article>
+
+
+          <article class="post-card reveal delay-1">
+
+            <span class="post-category">
+              Laboral
+            </span>
+
+            <h3>
+              Despido y trabajo no registrado: qué documentación
+              conviene conservar
+            </h3>
+
+            <p>
+              Mensajes, transferencias, recibos, testigos y otros
+              elementos que pueden ser relevantes frente a un
+              conflicto laboral.
+            </p>
+
+            <a href="blog/despido-trabajo-no-registrado-documentacion/">
+              Leer artículo →
+            </a>
+
+          </article>
+
+
+          <article class="post-card reveal delay-2">
+
+            <span class="post-category">
+              Previsional
+            </span>
+
+            <h3>
+              Antes de iniciar una jubilación: por qué revisar los
+              aportes y servicios registrados
+            </h3>
+
+            <p>
+              La revisión previa de la historia laboral puede evitar
+              demoras y permitir detectar inconsistencias antes de
+              iniciar el trámite.
+            </p>
+
+            <a href="blog/jubilacion-revisar-aportes-antes-de-iniciar/">
+              Leer artículo →
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACTO
+    ========================== -->
+
+    <section
+      class="contact"
+      id="contacto"
+    >
+
+      <div class="container contact-grid">
+
+
+        <div class="contact-copy reveal">
+
+          <span class="eyebrow dark">
+            Contacto
+          </span>
+
+          <h2>
+            Conversemos sobre tu caso.
+          </h2>
+
+          <p>
+            Podés escribirnos para coordinar una consulta inicial.
+            Respondemos de forma directa y te indicamos cómo avanzar.
+          </p>
+
+
+          <div class="contact-data">
+
+            <a href="mailto:abogadosjosevasquez@gmail.com">
+              abogadosjosevasquez@gmail.com
+            </a>
+
+            <div>
+              <a href="tel:+542615599687">
+                +54 261 559 9687
+              </a>
+
+              <span class="phone-sep"> · </span>
+
+              <a href="tel:+542616543479">
+                +54 261 654 3479
+              </a>
+            </div>
+
+            <span>
+              Mendoza, Argentina
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <form
+          class="contact-form reveal delay-1"
+          name="consulta"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+
+          <input
+            type="hidden"
+            name="form-name"
+            value="consulta"
+          />
+
+          <p class="hidden">
+            <label>
+              No completar:
+              <input name="bot-field" />
+            </label>
+          </p>
+
+
+          <label>
+            Nombre y apellido
+            <input
+              type="text"
+              name="nombre"
+              required
+            >
+          </label>
+
+
+          <label>
+            Correo electrónico
+            <input
+              type="email"
+              name="email"
+              required
+            >
+          </label>
+
+
+          <label>
+            Teléfono
+            <input
+              type="tel"
+              name="telefono"
+            >
+          </label>
+
+
+          <label>
+            Área de consulta
+
+            <select name="area">
+
+              <option value="">
+                Seleccionar
+              </option>
+
+              <option>Derecho civil</option>
+              <option>Derecho laboral</option>
+              <option>Derecho empresarial</option>
+              <option>Derecho previsional</option>
+              <option>Amparos</option>
+              <option>Familia y sucesiones</option>
+              <option>Consumidores y seguros</option>
+              <option>Contratos y cobranzas</option>
+              <option>Otra consulta</option>
+
+            </select>
+
+          </label>
+
+
+          <label class="full-field">
+
+            Contanos brevemente tu consulta
+
+            <textarea
+              name="consulta"
+              rows="5"
+              required
+            ></textarea>
+
+          </label>
+
+
+          <button
+            class="btn btn-primary"
+            type="submit"
+          >
+            Enviar consulta
+          </button>
+
+
+          <small>
+            Al enviar este formulario aceptás ser contactado
+            por el estudio.
+          </small>
+
+        </form>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer class="footer">
+
+    <div class="container footer-grid">
+
+      <div class="footer-logo">
+
+        <img
+          src="assets/logo-jv-footer.png"
+          alt="José & Vasquez Abogados"
+        >
+
+      </div>
+
+      <p>
+        © <span id="year"></span>
+        Todos los derechos reservados.
+      </p>
+
+      <div class="footer-links">
+
+        <a href="blog/">
+          Blog
+        </a>
+
+        <a href="#herramientas">
+          Herramientas
+        </a>
+
+        <a href="#inicio">
+          Volver arriba ↑
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       WHATSAPP
+  ========================== -->
+
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/542615599687?text=Hola%2C%20quisiera%20realizar%20una%20consulta%20jur%C3%ADdica"
+    target="_blank"
+    rel="noopener"
+    aria-label="Consultar por WhatsApp"
+  >
+    <svg
+      class="whatsapp-icon"
+      viewBox="0 0 32 32"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path
+        fill="currentColor"
+        d="M16.04 3C9.39 3 4 8.28 4 14.79c0 2.3.68 4.54 1.96 6.46L4 28.29l7.28-1.87a12.2 12.2 0 0 0 4.75.95h.01c6.64 0 12.04-5.28 12.04-11.79C28.08 9.08 22.68 3 16.04 3Zm0 22.38h-.01a10.1 10.1 0 0 1-4.47-1.04l-.32-.16-4.32 1.11 1.15-4.12-.21-.33a9.63 9.63 0 0 1-1.55-5.25c0-5.32 4.37-9.65 9.74-9.65 5.37 0 9.74 4.33 9.74 9.65 0 5.32-4.37 9.79-9.75 9.79Zm5.34-7.22c-.29-.14-1.73-.84-2-.93-.27-.1-.47-.14-.67.14-.2.29-.77.93-.94 1.12-.17.19-.35.22-.64.07-.29-.14-1.24-.45-2.36-1.44a8.8 8.8 0 0 1-1.63-1.99c-.17-.29-.02-.44.13-.58.13-.13.29-.34.44-.51.15-.17.2-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.67-1.59-.92-2.18-.24-.57-.49-.49-.67-.5h-.57c-.2 0-.52.07-.79.36-.27.29-1.04 1-1.04 2.44 0 1.44 1.07 2.83 1.21 3.02.15.19 2.1 3.16 5.09 4.43.71.3 1.27.48 1.7.62.71.22 1.36.19 1.87.12.57-.08 1.73-.7 1.98-1.37.24-.67.24-1.25.17-1.37-.07-.12-.27-.19-.56-.33Z"
+      />
+    </svg>
+  </a>
+
+
+  <script src="assets/main.js"></script>
+
+</body>
+</html>
