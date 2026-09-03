@@ -6,14 +6,14 @@
 
   <meta
     name="description"
-    content="José & Vásquez Abogados. Estudio jurídico en Mendoza. Derecho civil, laboral, empresarial, previsional, amparos, familia y sucesiones."
+    content="José & Vasquez Abogados. Estudio jurídico en Mendoza. Derecho civil, laboral, empresarial, previsional, amparos, familia y sucesiones."
   />
 
   <meta name="robots" content="index,follow" />
 
   <meta
     property="og:title"
-    content="José & Vásquez Abogados | Estudio Jurídico en Mendoza"
+    content="José & Vasquez Abogados | Estudio Jurídico en Mendoza"
   />
 
   <meta
@@ -23,7 +23,7 @@
 
   <meta property="og:type" content="website" />
 
-  <title>José & Vásquez Abogados | Estudio Jurídico en Mendoza</title>
+  <title>José & Vasquez Abogados | Estudio Jurídico en Mendoza</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,11 +35,169 @@
 
   <link rel="stylesheet" href="assets/styles.css" />
 
+  <style>
+    /* =========================
+       MENÚ DESPLEGABLE: HERRAMIENTAS
+    ========================== */
+
+    .nav-dropdown {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-dropdown summary {
+      list-style: none;
+      cursor: pointer;
+      font: inherit;
+      color: inherit;
+      user-select: none;
+    }
+
+    .nav-dropdown summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .nav-dropdown summary::after {
+      content: "▾";
+      display: inline-block;
+      margin-left: 6px;
+      font-size: 0.72em;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-dropdown[open] summary::after {
+      transform: rotate(180deg);
+    }
+
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%);
+      min-width: 280px;
+      padding: 10px;
+      background: #fff;
+      border: 1px solid rgba(20, 37, 63, 0.12);
+      border-radius: 10px;
+      box-shadow: 0 16px 40px rgba(20, 37, 63, 0.14);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.18s ease, visibility 0.18s ease, transform 0.18s ease;
+      z-index: 1000;
+    }
+
+    .nav-dropdown-menu::before {
+      content: "";
+      position: absolute;
+      top: -16px;
+      left: 0;
+      right: 0;
+      height: 16px;
+    }
+
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 11px 12px;
+      border-radius: 7px;
+      white-space: nowrap;
+    }
+
+    .nav-dropdown-menu a:hover,
+    .nav-dropdown-menu a:focus-visible {
+      background: rgba(20, 37, 63, 0.06);
+    }
+
+    .nav-dropdown[open] .nav-dropdown-menu,
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* =========================
+       TARJETAS DE ÁREAS:
+       TODA LA TARJETA CLICKEABLE
+    ========================== */
+
+    .practice-card {
+      position: relative;
+    }
+
+    .practice-card .card-link {
+      position: absolute;
+      inset: 0;
+      z-index: 20;
+      display: block;
+      cursor: pointer;
+    }
+
+    .practice-card > *:not(.card-link) {
+      position: relative;
+      z-index: 1;
+    }
+
+    .practice-card:hover {
+      cursor: pointer;
+    }
+
+    /* La tarjeta de consulta conserva su enlace visible normal */
+    .practice-card.consultation-card > a {
+      position: relative;
+      z-index: 21;
+    }
+
+    @media (max-width: 900px) {
+      .nav-dropdown {
+        display: block;
+        width: 100%;
+      }
+
+      .nav-dropdown summary {
+        width: 100%;
+      }
+
+      .nav-dropdown-menu {
+        position: static;
+        transform: none;
+        min-width: 0;
+        width: 100%;
+        margin-top: 8px;
+        padding: 6px 0 0 12px;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        background: transparent;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        display: none;
+      }
+
+      .nav-dropdown[open] .nav-dropdown-menu {
+        display: block;
+        transform: none;
+      }
+
+      .nav-dropdown:hover:not([open]) .nav-dropdown-menu {
+        display: none;
+      }
+
+      .nav-dropdown-menu a {
+        white-space: normal;
+      }
+    }
+  </style>
+
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LegalService",
-    "name": "José & Vásquez Abogados",
+    "name": "José & Vasquez Abogados",
     "areaServed": "Mendoza, Argentina",
     "description": "Estudio jurídico con asesoramiento en derecho civil, laboral, empresarial, previsional, amparos, familia y sucesiones."
   }
@@ -59,11 +217,11 @@
       <a
         class="brand brand-image"
         href="#inicio"
-        aria-label="José & Vásquez Abogados - Ir al inicio"
+        aria-label="José & Vasquez Abogados - Ir al inicio"
       >
         <img
           src="assets/logo-jv-header.png"
-          alt="José & Vásquez Abogados"
+          alt="José & Vasquez Abogados"
         />
       </a>
 
@@ -82,7 +240,18 @@
         <a href="#estudio">El estudio</a>
         <a href="nosotros/">Nosotros</a>
         <a href="#areas">Áreas de práctica</a>
-        <a href="#herramientas">Herramientas</a>
+
+        <details class="nav-dropdown">
+          <summary>Herramientas</summary>
+
+          <div class="nav-dropdown-menu">
+            <a href="#herramientas">Ver herramientas</a>
+            <a href="calculadora-indemnizacion-despido/">
+              Calculadora de indemnización
+            </a>
+          </div>
+        </details>
+
         <a href="blog/">Blog</a>
         <a href="#contacto" class="nav-cta">Contacto</a>
       </nav>
@@ -191,7 +360,7 @@
         <div class="intro-copy reveal delay-1">
 
           <p>
-            José & Vásquez Abogados es un estudio jurídico con
+            José & Vasquez Abogados es un estudio jurídico con
             base en Mendoza orientado a brindar soluciones
             concretas, comprensibles y técnicamente sólidas.
           </p>
@@ -299,7 +468,7 @@
             <div
               class="person-photo person-photo-two"
               role="img"
-              aria-label="Fotografía del Dr. Francisco Vásquez"
+              aria-label="Fotografía del Dr. Francisco Vasquez"
             ></div>
 
             <div class="person-info">
@@ -307,7 +476,7 @@
               <span>Socio · Abogado</span>
 
               <h3>
-                Dr. Francisco Vásquez
+                Dr. Francisco Vasquez
               </h3>
 
               <p>
@@ -1017,7 +1186,7 @@
 
         <img
           src="assets/logo-jv-footer.png"
-          alt="José & Vásquez Abogados"
+          alt="José & Vasquez Abogados"
         >
 
       </div>
