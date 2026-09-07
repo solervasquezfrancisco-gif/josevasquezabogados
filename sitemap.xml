@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://josevasquezabogados.netlify.app/</loc></url>
-  <url><loc>https://josevasquezabogados.netlify.app/nosotros/</loc></url>
-  <url><loc>https://josevasquezabogados.netlify.app/derecho-civil-mendoza/</loc></url>
-  <url><loc>https://josevasquezabogados.netlify.app/derecho-laboral-mendoza/</loc></url>
-  <url><loc>https://josevasquezabogados.netlify.app/derecho-empresarial-mendoza/</loc></url>
-  <url><loc>https://josevasquezabogados.netlify.app/derecho-previsional-mendoza/</loc></url>
-  <url><loc>https://josevasquezabogados.netlify.app/amparos-mendoza/</loc></url>
-  <url><loc>https://josevasquezabogados.netlify.app/familia-sucesiones-mendoza/</loc></url>
-  <url><loc>https://josevasquezabogados.netlify.app/consumidor-seguros-mendoza/</loc></url>
-  <url><loc>https://josevasquezabogados.netlify.app/contratos-cobranzas-mendoza/</loc></url>
-  <url><loc>https://josevasquezabogados.netlify.app/blog/</loc></url>
-  <url><loc>https://josevasquezabogados.netlify.app/blog/amparo-obra-social-medicamento-tratamiento/</loc></url>
-  <url><loc>https://josevasquezabogados.netlify.app/blog/despido-trabajo-no-registrado-documentacion/</loc></url>
-  <url><loc>https://josevasquezabogados.netlify.app/blog/jubilacion-revisar-aportes-antes-de-iniciar/</loc></url>
-  <url><loc>https://josevasquezabogados.netlify.app/blog/accidente-transito-seguro-no-paga/</loc></url>
+  <url><loc>https://josevasquezabogados.com.ar/</loc></url>
+  <url><loc>https://josevasquezabogados.com.ar/nosotros/</loc></url>
+
+  <url><loc>https://josevasquezabogados.com.ar/derecho-civil-mendoza/</loc></url>
+  <url><loc>https://josevasquezabogados.com.ar/derecho-laboral-mendoza/</loc></url>
+  <url><loc>https://josevasquezabogados.com.ar/derecho-empresarial-mendoza/</loc></url>
+  <url><loc>https://josevasquezabogados.com.ar/derecho-previsional-mendoza/</loc></url>
+  <url><loc>https://josevasquezabogados.com.ar/amparos-mendoza/</loc></url>
+  <url><loc>https://josevasquezabogados.com.ar/familia-sucesiones-mendoza/</loc></url>
+
+  <url><loc>https://josevasquezabogados.com.ar/consumidor-seguros-mendoza/</loc></url>
+  <url><loc>https://josevasquezabogados.com.ar/contratos-cobranzas-mendoza/</loc></url>
+
+  <url><loc>https://josevasquezabogados.com.ar/calculadora-indemnizacion-despido/</loc></url>
+  <url><loc>https://josevasquezabogados.com.ar/calculadora-liquidacion-final-renuncia/</loc></url>
+
+  <url><loc>https://josevasquezabogados.com.ar/blog/</loc></url>
+  <url><loc>https://josevasquezabogados.com.ar/blog/amparo-obra-social-medicamento-tratamiento/</loc></url>
+  <url><loc>https://josevasquezabogados.com.ar/blog/despido-trabajo-no-registrado-documentacion/</loc></url>
+  <url><loc>https://josevasquezabogados.com.ar/blog/jubilacion-revisar-aportes-antes-de-iniciar/</loc></url>
+  <url><loc>https://josevasquezabogados.com.ar/blog/accidente-transito-seguro-no-paga/</loc></url>
 </urlset>
