@@ -13,8 +13,6 @@ seo_description: Conocé qué daños se pueden reclamar, qué documentación con
   Mendoza
 published: true
 ---
-# Daños y perjuicios en Mendoza: qué se puede reclamar y cómo se determina una indemnización
-
 Cuando una persona sufre un daño por la conducta de otra persona, una empresa o como consecuencia de un accidente, puede surgir el derecho a reclamar una reparación.
 
 Un accidente de tránsito, una lesión sufrida en un establecimiento comercial, el incumplimiento de determinadas obligaciones o cualquier otro hecho dañoso puede generar consecuencias económicas y personales que deben analizarse individualmente.
