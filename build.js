@@ -1,77 +1,69 @@
 const fs = require('fs');
 const path = require('path');
 function parseScalar(v){
-  v=v.trim();
-  if(v==='true') return true;
-  if(v==='false') return false;
-  if(v==='null'||v==='') return '';
-  if((v.startsWith('"')&&v.endsWith('"'))||(v.startsWith("'")&&v.endsWith("'"))) return v.slice(1,-1).replace(/\\"/g,'"');
-  return v;
+  v = String(v ?? '').trim();
+
+  if(v === 'true') return true;
+  if(v === 'false') return false;
+  if(v === 'null' || v === '') return '';
+
+  if(
+    (v.startsWith('"') && v.endsWith('"')) ||
+    (v.startsWith("'") && v.endsWith("'"))
+  ){
+    v = v.slice(1, -1);
+  }
+
+  return v.replace(/\\"/g, '"');
 }
+
 function parseFrontmatter(raw){
-  if(!raw.startsWith('---')) return {data:{},content:raw};
+  if(!raw.startsWith('---')) {
+    return {data:{}, content:raw};
+  }
 
-  const end=raw.indexOf('\n---',3);
-  if(end<0) return {data:{},content:raw};
+  const end = raw.indexOf('\n---', 3);
 
-  const head=raw.slice(4,end).trim();
-  const content=raw.slice(end+4).replace(/^\s+/,'');
+  if(end < 0) {
+    return {data:{}, content:raw};
+  }
 
-  const data={};
-  const lines=head.split(/\r?\n/);
+  const head = raw.slice(4, end).trim();
+  const content = raw.slice(end + 4).replace(/^\s+/, '');
 
-  let currentKey=null;
-  let currentValue='';
+  const data = {};
+  const lines = head.split(/\r?\n/);
 
-  const saveCurrent=()=>{
+  let currentKey = null;
+  let currentValue = '';
+
+  function saveCurrent(){
     if(!currentKey) return;
 
-    let value=currentValue.trim();
+    data[currentKey] = parseScalar(currentValue);
 
-    // Pages CMS/YAML puede dividir valores largos entre varias líneas.
-    // Si el valor completo quedó entre comillas, quitarlas recién al final.
-    if(
-      (value.startsWith('"') && value.endsWith('"')) ||
-      (value.startsWith("'") && value.endsWith("'"))
-    ){
-      value=value.slice(1,-1);
-    }
-
-    value=value.replace(/\\"/g,'"');
-
-    if(value==='true'){
-      data[currentKey]=true;
-    } else if(value==='false'){
-      data[currentKey]=false;
-    } else if(value==='null' || value===''){
-      data[currentKey]='';
-    } else {
-      data[currentKey]=value;
-    }
-
-    currentKey=null;
-    currentValue='';
-  };
+    currentKey = null;
+    currentValue = '';
+  }
 
   for(const line of lines){
+    const property = line.match(/^([A-Za-z0-9_]+):\s*(.*)$/);
 
-    const m=line.match(/^([A-Za-z0-9_]+):\s*(.*)$/);
-
-    if(m){
+    if(property){
       saveCurrent();
-      currentKey=m[1];
-      currentValue=m[2];
-    } else if(currentKey && /^\s+/.test(line)){
+      currentKey = property[1];
+      currentValue = property[2];
+      continue;
+    }
+
+    if(currentKey && /^\s+/.test(line)){
       currentValue += ' ' + line.trim();
     }
   }
 
   saveCurrent();
 
-  return {data,content};
-}
-  }
-  return {data,content};
+  return {data, content};
 }
 function inlineMd(s){
   s=esc(s);
@@ -163,7 +155,7 @@ if(fs.existsSync(homePath)){
   const latest=posts.slice(0,3).map((p,i)=>`<article class="post-card reveal${i?` delay-${i}`:''}"><span class="post-category">${esc(p.category||'Actualidad jurídica')}</span><h3>${esc(p.title)}</h3><p>${esc(p.excerpt||'')}</p><a href="blog/${esc(p.slug)}/">Leer artículo →</a></article>`).join('');
   home=home.replace(/<div class="blog-grid">[\s\S]*?<\/div>\s*<\/div>\s*<\/section>\s*\n\s*<section class="contact"/, `<div class="blog-grid">${latest}</div></div></section>\n\n    <section class="contact"`);
   // Render no procesa Netlify Forms; usar FormSubmit para mantener el formulario operativo.
-  home=home.replace(/<form class="contact-form reveal delay-1" name="consulta" method="POST" data-netlify="true" netlify-honeypot="bot-field">[\s\S]*?<input type="hidden" name="form-name" value="consulta" \/>/, `<form class="contact-form reveal delay-1" action="https://formsubmit.co/abogadosjosevasquez@gmail.com" method="POST"><input type="hidden" name="_subject" value="Nueva consulta desde josevasquezabogados.onrender.com"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_template" value="table">`);
+  home=home.replace(/<form class="contact-form reveal delay-1" name="consulta" method="POST" data-netlify="true" netlify-honeypot="bot-field">[\s\S]*?<input type="hidden" name="form-name" value="consulta" \/>/, `<form class="contact-form reveal delay-1" action="https://formsubmit.co/abogadosjosevasquez@gmail.com" method="POST"><input type="hidden" name="_subject" value="Nueva consulta desde josevasquezabogados.com.ar"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_template" value="table">`);
   home=home.replace(/<p class="hidden"><label>No completar: <input name="bot-field" \/><\/label><\/p>/,'');
   fs.writeFileSync(homePath,home);
 }
