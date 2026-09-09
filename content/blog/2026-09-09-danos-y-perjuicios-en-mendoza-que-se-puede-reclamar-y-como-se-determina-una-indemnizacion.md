@@ -1,6 +1,6 @@
 ---
-title: "Daños y perjuicios en Mendoza: qué se puede reclamar y cómo se determina
-  una indemnización"
+title: Daños y perjuicios en Mendoza: qué se puede reclamar y cómo se determina
+  una indemnización
 date: 2026-09-09
 author: Francisco Vásquez
 category: Civil
