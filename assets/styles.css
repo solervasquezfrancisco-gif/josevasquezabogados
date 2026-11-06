@@ -14,7 +14,20 @@
 @media(max-width:640px){.container{width:min(100% - 28px,1180px)}.nav-wrap{height:82px}.brand-image{width:208px;height:54px}.site-header .main-nav{top:82px}.hero{min-height:auto;padding-top:82px;background-position:62% center}.hero-grid{padding:105px 0 70px}.hero-copy h1{font-size:53px}.hero-copy>p{font-size:16px}.hero-card{padding-left:22px}.intro,.practice,.contact,.team,.blog-preview{padding:86px 0}.section-heading h2,.contact-copy h2{font-size:46px}.cards-grid,.blog-grid,.articles-grid{grid-template-columns:1fr}.practice-card{min-height:280px}.card-num{margin-bottom:42px}.method-image{min-height:360px}.method-copy{padding:75px 28px}.method-copy h2{font-size:48px}.contact-form{grid-template-columns:1fr;padding:26px}.contact-form label:nth-of-type(4){grid-column:auto}.contact-form small{margin-top:8px}.hero-actions .btn{width:100%}.person-card{grid-template-columns:1fr}.person-photo{height:320px;min-height:320px;background-position:center 18%}.person-info{padding:25px}.blog-page{padding-top:82px}.blog-hero{padding:80px 0 60px}}
 
 /* V3 — páginas de servicio, captación y SEO */
-.practice-card{position:relative}.practice-card .card-link{position:absolute;inset:0;z-index:1}.practice-card h3,.practice-card p,.practice-card .card-num,.practice-card>a:not(.card-link){position:relative;z-index:2}.practice-card:hover h3{color:var(--gold)}.accent-card:hover h3{color:var(--gold-soft)}
+/* Tarjetas: compatibilidad con enlaces antiguos superpuestos y nuevos enlaces dentro de h3. */
+.practice-card{position:relative}
+/* Las demás páginas pueden conservar enlaces vacíos directos como overlay. */
+.practice-card > a.card-link{position:absolute;inset:0;z-index:3;display:block}
+/* En la portada optimizada, el texto del título es un enlace real y visible. */
+.practice-card h3{position:static;z-index:auto}
+.practice-card h3 > a.card-link{position:static;inset:auto;z-index:auto;display:inline;color:inherit;text-decoration:none}
+.practice-card h3 > a.card-link::after{content:"";position:absolute;inset:0;z-index:3;cursor:pointer}
+.practice-card h3 > a.card-link:focus-visible{outline:none}
+.practice-card h3 > a.card-link:focus-visible::after{outline:3px solid var(--gold);outline-offset:-4px}
+.practice-card .card-num,.practice-card p{position:relative;z-index:1}
+.practice-card > a:not(.card-link){position:relative;z-index:4}
+.practice-card:hover h3{color:var(--gold)}
+.accent-card:hover h3{color:var(--gold-soft)}
 .whatsapp-float{position:fixed;right:22px;bottom:22px;z-index:30;width:58px;height:58px;border-radius:50%;background:#1f6f50;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 28px rgba(0,0,0,.22);font-size:22px;font-weight:600;transition:.25s}.whatsapp-float:hover{transform:translateY(-2px)}
 .service-page,.article-page,.about-page{padding-top:94px}.service-hero,.article-hero,.about-hero{background:var(--ink);color:var(--white);padding:105px 0 90px}.service-hero-grid{display:grid;grid-template-columns:1.05fr .6fr;gap:90px;align-items:end}.service-hero h1,.about-hero h1{font-size:clamp(56px,7vw,86px);max-width:850px;margin-bottom:25px}.service-hero p,.about-hero p{font-size:18px;max-width:720px;color:rgba(255,255,255,.72)}.service-side{border-left:1px solid rgba(255,255,255,.2);padding-left:34px}.service-side span{display:block;color:var(--gold-soft);font-size:11px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px}.service-side p{font-size:14px;margin:0}.breadcrumbs{font-size:11px;color:rgba(255,255,255,.58);margin-bottom:26px}.breadcrumbs a:hover{color:#fff}
 .service-content{padding:105px 0;background:var(--white)}.service-layout{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:85px;align-items:start}.service-copy h2{font-size:48px;margin:0 0 25px}.service-copy h3{font-size:31px;margin:48px 0 15px}.service-copy p,.service-copy li{color:var(--ink-soft)}.service-aside{position:sticky;top:120px;background:var(--paper);padding:30px;border:1px solid var(--line)}.service-aside h3{font-size:30px;margin-bottom:14px}.service-aside p{font-size:14px;color:var(--ink-soft)}.service-aside .btn{width:100%;margin-top:12px}.faq{margin-top:55px;border-top:1px solid var(--line)}.faq-item{padding:24px 0;border-bottom:1px solid var(--line)}.faq-item h3{font-family:var(--sans);font-size:15px;line-height:1.5;margin:0 0 8px;font-weight:600}.faq-item p{margin:0;font-size:14px}
@@ -225,3 +238,34 @@
     gap: 18px;
   }
 }
+
+
+/* Ajustes de la portada SEO: título principal y frase comercial complementaria. */
+.hero-copy .hero-tagline{
+  max-width:650px;
+  margin:-8px 0 22px;
+  font-family:var(--serif);
+  font-size:clamp(26px,2.8vw,36px);
+  font-weight:600;
+  line-height:1.16;
+  letter-spacing:-.015em;
+  color:var(--white);
+}
+@media(max-width:640px){
+  .hero-copy .hero-tagline{font-size:27px;margin:0 0 20px}
+}
+/* Enfoque visible de controles de teclado, sin alterar los colores originales. */
+.main-nav a:focus-visible,.nav-dropdown summary:focus-visible,
+.menu-toggle:focus-visible,.btn:focus-visible,.contact-form input:focus-visible,
+.contact-form select:focus-visible,.contact-form textarea:focus-visible,
+.blog-grid a:focus-visible,.seo-inline-link:focus-visible{
+  outline:2px solid var(--gold);
+  outline-offset:3px;
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .practice-card,.btn,.whatsapp-float,.main-nav a{transition:none}
+}
+
+.seo-inline-link{color:inherit;text-decoration:underline;text-underline-offset:3px}
