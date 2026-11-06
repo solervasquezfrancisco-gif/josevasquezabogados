@@ -1071,22 +1071,11 @@
           class="contact-form reveal delay-1"
           name="consulta"
           method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
+          action="https://formspree.io/f/mvkkyeol"
+          accept-charset="UTF-8"
         >
 
-          <input
-            type="hidden"
-            name="form-name"
-            value="consulta"
-          />
-
-          <p class="hidden">
-            <label>
-              No completar:
-              <input name="bot-field" />
-            </label>
-          </p>
+          <input type="hidden" name="subject" value="Nueva consulta desde José &amp; Vasquez Abogados">
 
 
           <label>
@@ -1094,6 +1083,7 @@
             <input
               type="text"
               name="nombre"
+              autocomplete="name"
               required
             >
           </label>
@@ -1104,6 +1094,7 @@
             <input
               type="email"
               name="email"
+              autocomplete="email"
               required
             >
           </label>
@@ -1114,6 +1105,7 @@
             <input
               type="tel"
               name="telefono"
+              autocomplete="tel"
             >
           </label>
 
@@ -1147,7 +1139,7 @@
             Contanos brevemente tu consulta
 
             <textarea
-              name="consulta"
+              name="message"
               rows="5"
               required
             ></textarea>
@@ -1164,8 +1156,9 @@
 
 
           <small>
-            Al enviar este formulario aceptás ser contactado
-            por el estudio.
+            Utilizaremos tus datos para responder la consulta.
+            El envío se procesa mediante Formspree. Evitá incluir
+            información especialmente sensible en este primer contacto.
           </small>
 
         </form>
